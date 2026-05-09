@@ -102,5 +102,5 @@ impl BarangayPass {
         Symbol::new(&env, "BarangayPass")
     }
 }
--e 
+
 mod test;
