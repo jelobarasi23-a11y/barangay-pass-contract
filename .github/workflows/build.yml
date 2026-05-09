@@ -10,7 +10,7 @@ jobs:
         run: sudo apt-get install -y libdbus-1-dev pkg-config libudev-dev
 
       - name: Install Rust wasm target
-        run: rustup target add wasm32-unknown-unknown
+        run: rustup target add wasm32v1-none
 
       - name: Install Stellar CLI
         run: cargo install --locked stellar-cli
