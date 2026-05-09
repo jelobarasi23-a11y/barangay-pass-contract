@@ -1,0 +1,18 @@
+name: Build Soroban Contract
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Rust
+        run: rustup target add wasm32-unknown-unknown
+      - name: Install Stellar CLI
+        run: cargo install --locked stellar-cli --features opt
+      - name: Build contract
+        run: stellar contract build
+      - name: Upload WASM
+        uses: actions/upload-artifact@v3
+        with:
+          name: barangay_pass_wasm
+          path: target/wasm32v1-none/release/barangay_pass.wasm
